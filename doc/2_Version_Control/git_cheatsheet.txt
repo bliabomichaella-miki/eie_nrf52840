@@ -56,3 +56,12 @@ Subsequent git pull commands on your local <lesson#> branch will automatically f
 Subsequent git push commands on your local <lesson#> branch will automatically push changes to origin/<lesson#>.
 
 - anytime im working with west and stuff, i need to use ... source .venv/Scripts/activate to get in my venv then go back in
+
+
+Command	Why You Run It
+git remote add upstream https://github.com/eiefirmware/eie_nrf52840.git	Setup: Run this only once to tell Git where the original repository is located.
+git checkout lesson4	Check Branch: Switch to the branch you need to update.
+git fetch upstream	Get Updates: Download all the new commits (the 31 "behind" changes) from the original repo.
+git rebase upstream/main	Combine History: Apply their 31 commits, then re-apply your 15 commits on top.
+git rebase --continue	(Use ONLY if conflicts occur): Resume the synchronization after you have fixed and staged any file conflicts.
+git push --force	Upload: Overwrite the old history on your GitHub fork with the new, clean, combined history.
